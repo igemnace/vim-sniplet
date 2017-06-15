@@ -17,7 +17,7 @@ endif
 """ FUNCTIONS {{{
 " define function for creating Sniplets
 function! s:Sniplet(received_args, mode, is_buffer_local)
-  let [l:pattern, l:expansion] = received_args
+  let [l:pattern, l:expansion] = a:received_args
 
   call sniplet#Abbrev(g:sniplet_trigger, l:pattern, l:expansion,
     \ a:mode, a:is_buffer_local)

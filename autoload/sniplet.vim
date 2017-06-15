@@ -30,7 +30,7 @@ endfunction
 " and extracts the pattern and the expansion for the Sniplet
 function! sniplet#ReceiveArgs(...)
   " first word will always be the pattern
-  let l:pattern = a:0
+  let l:pattern = a:000[0]
 
   " second word onwards will be the expansion
   let l:expansion = join(a:000[1:])
