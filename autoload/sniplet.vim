@@ -28,12 +28,12 @@ endfunction
 
 " receives <f-args> from a user-facing command as a list
 " and extracts the pattern and the expansion for the Sniplet
-function! sniplet#ReceiveArgs(args)
+function! sniplet#ReceiveArgs(...)
   " first word will always be the pattern
-  let l:pattern = a:args[0]
+  let l:pattern = a:0
 
   " second word onwards will be the expansion
-  let l:expansion = join(a:args[1:])
+  let l:expansion = join(a:000[1:])
 
   return [l:pattern, l:expansion]
 endfunction
