@@ -2,6 +2,11 @@
 
 A tiny Vim plugin for abbreviation-based snippets.
 
+## Installation
+
+Copy the contents of `plugin` and `autoload` to `~/.vim` on UNIX-like systems,
+or install with your favorite plugin manager.
+
 ## Usage
 
 Use `:Sniplet` to define an abbreviation that will only expand with an explicit
