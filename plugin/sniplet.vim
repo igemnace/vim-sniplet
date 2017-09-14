@@ -1,6 +1,6 @@
 """ DECLARATIONS {{{
 " guard against multiple loaded instances
-if exists("g:loaded_sniplet")
+if exists('g:loaded_sniplet')
   finish
 endif
 
@@ -9,17 +9,15 @@ let g:loaded_sniplet = 1
 
 " define default abbreviation trigger
 " default: <Expand>
-if !exists("g:sniplet_trigger")
-  let g:sniplet_trigger="<Expand>"
-endif
+let s:sniplet_trigger = get(g:, 'sniplet_trigger', '<Expand>')
 """ END DECLARATIONS }}}
 
 """ FUNCTIONS {{{
 " define function for creating Sniplets
-function! s:Sniplet(received_args, mode, is_buffer_local)
+function! s:Sniplet(received_args, mode, is_buffer_local) abort
   let [l:pattern, l:expansion] = a:received_args
 
-  call sniplet#Abbrev(g:sniplet_trigger, l:pattern, l:expansion,
+  call sniplet#Abbrev(s:sniplet_trigger, l:pattern, l:expansion,
     \ a:mode, a:is_buffer_local)
 endfunction
 """ END FUNCTIONS }}}
@@ -40,8 +38,8 @@ command! -nargs=+ CSnipletBuffer
 """ MAPPINGS {{{
 " define <Plug> mappings for Insert and Command modes
 " so user can use whatever keybinds they want
-execute "inoremap <Plug>SnipletExpand" g:sniplet_trigger . "<C-]>"
-execute "cnoremap <Plug>SnipletExpand" g:sniplet_trigger . "<C-]>"
+execute 'inoremap <Plug>SnipletExpand' g:sniplet_trigger . '<C-]>'
+execute 'cnoremap <Plug>SnipletExpand' g:sniplet_trigger . '<C-]>'
 """ END MAPPINGS }}}
 
 " vim:fdm=marker

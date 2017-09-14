@@ -1,21 +1,21 @@
 " creates a Sniplet by executing an appropriate abbrev
-function! sniplet#Abbrev(trigger, pattern, expansion, mode, is_buffer_local)
+function! sniplet#Abbrev(trigger, pattern, expansion, mode, is_buffer_local) abort
   " use mode argument to determine whether to use iabbrev or cabbrev
-  if a:mode ==? "i"
-    let l:abbrev_command = "iabbrev"
-  elseif a:mode ==? "c"
-    let l:abbrev_command = "cabbrev"
+  if a:mode ==? 'i'
+    let l:abbrev_command = 'iabbrev'
+  elseif a:mode ==? 'c'
+    let l:abbrev_command = 'cabbrev'
   else
     " define a default, modeless abbrev command
-    let l:abbrev_command = "abbreviate"
+    let l:abbrev_command = 'abbreviate'
   endif
 
   " use is_buffer_local argument to determine whether to add <buffer>
   if a:is_buffer_local
-    let l:modifier = "<buffer>"
+    let l:modifier = '<buffer>'
   else
     " define a default, empty modifier for abbrev
-    let l:modifier = ""
+    let l:modifier = ''
   endif
 
   " append the trigger to the pattern
@@ -28,7 +28,7 @@ endfunction
 
 " receives <f-args> from a user-facing command as a list
 " and extracts the pattern and the expansion for the Sniplet
-function! sniplet#ReceiveArgs(...)
+function! sniplet#ReceiveArgs(...) abort
   " first word will always be the pattern
   let l:pattern = a:000[0]
 
