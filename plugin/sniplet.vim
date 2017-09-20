@@ -38,8 +38,8 @@ command! -nargs=+ CSnipletBuffer
 """ MAPPINGS {{{
 " define <Plug> mappings for Insert and Command modes
 " so user can use whatever keybinds they want
-execute 'inoremap <Plug>SnipletExpand' g:sniplet_trigger . '<C-]>'
-execute 'cnoremap <Plug>SnipletExpand' g:sniplet_trigger . '<C-]>'
+execute 'inoremap <Plug>SnipletExpand' s:sniplet_trigger . '<C-]>'
+execute 'cnoremap <Plug>SnipletExpand' s:sniplet_trigger . '<C-]>'
 """ END MAPPINGS }}}
 
 " vim:fdm=marker
