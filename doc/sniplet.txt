@@ -1,0 +1,85 @@
+*sniplet.txt*					    Modified: October 2018
+
+
+		    Sniplet - Vim plugin by Ian Emnace ~
+
+
+							*sniplet*
+Sniplet is a tiny Vim plugin for abbreviation-based snippets. For updates and
+more details please visit: https://github.com/igemnace/vim-sniplet
+
+1. Install				|sniplet-install|
+2. Commands			    	|sniplet-commands|
+3. Expansion Keypress			|sniplet-expansion|
+4. About Tiny Vim Plugins		|sniplet-tiny|
+5. License				|sniplet-license|
+
+==============================================================================
+1. Install						*sniplet-install*
+
+Copy the contents of `plugin` and `autoload` to `~/.vim` on UNIX-like systems, or
+install with your favorite plugin manager. You can also use |packages|.
+
+==============================================================================
+2. Commands						*sniplet-commands*
+
+Supported options can be controlled by setting global variables (|g:|).
+Boolean options are set with numbers `1` or `0` for true and false,
+respectively.
+
+:Sniplet {abbrev} {exp}					*:Sniplet*
+		    Defines an abbreviation {abbrev} that will only expand
+		    to {exp} with an explicit |sniplet-expansion| keypress.
+		    Use it as you would use |:abbreviate|. For example: >
+
+		    :Sniplet main public static void main(String[] args) {}
+<
+
+:ISniplet {abbrev} {exp}				*:ISniplet*
+		    Same as |:Sniplet|, but for Insert mode only.
+
+:CSniplet {abbrev} {exp}				*:CSniplet*
+		    Same as |:Sniplet|, but for Command mode only.
+
+:SnipletBuffer {abbrev} {exp}				*:SnipletBuffer*
+		    Similar to |:Snipplet|, but create buffer-local Sniplets
+		    (useful for filetype-specific Sniplets).
+
+:ISnipletBuffer {abbrev} {exp}				*:ISnipletBuffer*
+		    Same as |:SnipletBuffer|, but for Insert mode only.
+
+:CSnipletBuffer {abbrev} {exp}				*:CSnipletBuffer*
+		    Same as |:SnipletBuffer|, but for Command mode only.
+
+==============================================================================
+3. Expansion Keypress					*sniplet-expansion*
+							*expansion-keypress*
+							*SnipletExpand*
+The expansion keypress is unbound by default. You can map it to whatever you
+want using the <Plug>SnipletExpand mapping. For example: >
+
+    imap <Tab> <Plug>SnipletExpand
+    cmap <Tab> <Plug>SnipletExpand
+<
+That way, your `main` Sniplet will only expand when you type `main`<Tab>.
+
+==============================================================================
+4. About Tiny Vim Plugins				*sniplet-tiny*
+
+I have a set of functionality in my .vimrc that I intentionally implemented
+with a minimalist philosophy.
+
+I don't want a monolithic plugin to do all sorts of things for me all at once.
+Instead, I want tiny plugins that do a single, specific task each.
+
+This way I can compose several of these tiny plugins to achieve what I want,
+while still allowing me to configure and leave out unwanted behavior.
+Moreover, I can rely on other excellent tools that already exist!
+
+==============================================================================
+5. License						*sniplet-license*
+
+This project is free and open source software, licensed under the MIT license.
+You are free to use, modify, and redistribute this software.
+
+ vim:tw=78:ts=8:noet:ft=help:norl:
