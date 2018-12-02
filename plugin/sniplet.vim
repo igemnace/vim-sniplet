@@ -16,9 +16,9 @@ let g:sniplet_trigger = get(g:, 'sniplet_trigger', '<Expand>')
 command! -nargs=+ Sniplet call sniplet#create('', <f-args>)
 command! -nargs=+ ISniplet call sniplet#create('i', <f-args>)
 command! -nargs=+ CSniplet call sniplet#create('c', <f-args>)
-command! -nargs=+ SnipletBuffer call Sniplet <buffer> <args>
-command! -nargs=+ ISnipletBuffer call ISniplet <buffer> <args>
-command! -nargs=+ CSnipletBuffer call CSniplet <buffer> <args>
+command! -nargs=+ SnipletBuffer Sniplet <buffer> <args>
+command! -nargs=+ ISnipletBuffer ISniplet <buffer> <args>
+command! -nargs=+ CSnipletBuffer CSniplet <buffer> <args>
 """ END COMMANDS }}}
 
 """ MAPPINGS {{{
