@@ -31,8 +31,8 @@ That way, your `main` Sniplet will only expand when you type `main<Tab>`.
 You also have access to `:ISniplet` and `:CSniplet`, similar to `:iabbrev` and
 `:cabbrev`.
 
-Also, `:SnipletBuffer`, `:ISnipletBuffer`, and `:CSnipletBuffer` create
-buffer-local Sniplets (useful for filetype-specific Sniplets).
+Also, `:Sniplet <buffer>` and friends create buffer-local Sniplets (useful for
+filetype-specific Sniplets).
 
 ## Tiny Vim Plugins
 

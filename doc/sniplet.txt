@@ -27,29 +27,37 @@ Supported options can be controlled by setting global variables (|g:|).
 Boolean options are set with numbers `1` or `0` for true and false,
 respectively.
 
-:Sniplet {abbrev} {exp}					*:Sniplet*
+:Sniplet [<buffer>] {abbrev} {exp}			*:Sniplet*
 		    Defines an abbreviation {abbrev} that will only expand
 		    to {exp} with an explicit |sniplet-expansion| keypress.
 		    Use it as you would use |:abbreviate|. For example: >
 
 		    :Sniplet main public static void main(String[] args) {}
 <
+		    					*:Sniplet-<buffer>*
+		    Use <buffer> if you want to create a buffer-local
+		    Sniplet instead of a global one. Useful for
+		    filetype-specific Sniplets!
 
-:ISniplet {abbrev} {exp}				*:ISniplet*
+:ISniplet [<buffer>] {abbrev} {exp}			*:ISniplet*
 		    Same as |:Sniplet|, but for Insert mode only.
 
-:CSniplet {abbrev} {exp}				*:CSniplet*
+:CSniplet [<buffer>] {abbrev} {exp}			*:CSniplet*
 		    Same as |:Sniplet|, but for Command mode only.
 
+
+The following commands are deprecated and retained for backward compatibility:
+
 :SnipletBuffer {abbrev} {exp}				*:SnipletBuffer*
-		    Similar to |:Snipplet|, but create buffer-local Sniplets
-		    (useful for filetype-specific Sniplets).
+		    NOTE: Deprecated. |:Sniplet-<buffer>| form is preferred.
 
 :ISnipletBuffer {abbrev} {exp}				*:ISnipletBuffer*
 		    Same as |:SnipletBuffer|, but for Insert mode only.
+		    NOTE: Deprecated. |:Sniplet-<buffer>| form is preferred.
 
 :CSnipletBuffer {abbrev} {exp}				*:CSnipletBuffer*
 		    Same as |:SnipletBuffer|, but for Command mode only.
+		    NOTE: Deprecated. |:Sniplet-<buffer>| form is preferred.
 
 ==============================================================================
 3. Expansion Keypress					*sniplet-expansion*
